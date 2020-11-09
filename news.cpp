@@ -18,6 +18,8 @@ long long generateRandomId() {
 	return distr(eng);
 }
 
+/* Adds a new user to the system. 
+ *It should generate unique ID and use current date for joining date */
 void addNewUserProfile(string name, string emailAddress, long long phone_number) {
 	long long id = generateRandomId();
 
@@ -29,6 +31,7 @@ void addNewUserProfile(string name, string emailAddress, long long phone_number)
 	users[id] = User(id, name, emailAddress, phone_number);
 }
 
+// Prints user information in a nicely formatted way
 void displayUserProfile(long long userID) {
 	if (users.find(userID) != users.end()) {
 		cout << "Id: " << users[userID].id << endl;
@@ -41,6 +44,7 @@ void displayUserProfile(long long userID) {
 	}
 }
 
+// Updates username
 void changeUserName(long long userID, string newName) {
 	if (users.find(userID) != users.end()) {
 		users[userID].name = newName;
@@ -49,6 +53,7 @@ void changeUserName(long long userID, string newName) {
 	}
 }
 
+// Updates user email address
 void changeUserEmailAddress(long long userID, string newEmailAddress) {
 	if (users.find(userID) != users.end()) {
 		users[userID].email = newEmailAddress;
@@ -57,6 +62,7 @@ void changeUserEmailAddress(long long userID, string newEmailAddress) {
 	}
 }
 
+// Updates user phone number
 void changeUserPhoneNumber(long long userID, long long newPhoneNumber) {
 	if (users.find(userID) != users.end()) {
 		users[userID].phone = newPhoneNumber;
